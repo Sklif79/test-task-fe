@@ -51,7 +51,7 @@
   &:before {
     .position-absolute-stretch;
     content: "";
-    background: rgba(43,43,43,0.5);
+    background: rgba(43, 43, 43, 0.5);
   }
 
   h1 {
@@ -85,12 +85,23 @@
   border-radius: 2px;
   z-index: 10;
   transition: border-color @transition;
+  animation: bounce infinite  2.5s ease-out;
 
   &:hover {
     border-color: #fff;
+    animation: none;
   }
 }
 
+@keyframes bounce {
+  0%  {
+    bottom: 51px;
+  }
+
+  100% {
+    bottom: 10px;
+  }
+};
 
 /* - - - - - - - - - - - - - - - - filter - - - - - - - - - - - - - - - -*/
 .filter {
@@ -173,6 +184,11 @@
   //padding-right: 15px;
   letter-spacing: 1px;
   padding: 3px;
+  transition: @transition;
+
+  &:hover {
+    color: darken(@gold-color, 10%)
+  }
 }
 
 .catalog-item__price {
@@ -255,6 +271,11 @@
     position: relative;
     font-size: 0.875rem;
     margin-bottom: 5px;
+    transition: @transition;
+
+    &:hover {
+      color: @gold-color;
+    }
 
     &::before {
       content: "|";
@@ -275,6 +296,25 @@
 
 }
 
+#toUp {
+  background: url('../images/sprite.png') no-repeat -107px -5px rgba(255,255,255,.8);
+  width: 50px;
+  height: 50px;
+  bottom: 150px;
+  border: 2px solid #837659;
+  border-radius: 2px;
+  right: 70px;
+  position: fixed;
+  display: none;
+  cursor: pointer;
+
+  &.js-visible {
+    display: block;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - @media - - - - - - - - - - - - - - - -*/
 @media (max-width: 1024px) {
   .container {
     padding-left: 25px;
