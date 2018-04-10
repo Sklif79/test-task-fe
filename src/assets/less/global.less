@@ -1,0 +1,145 @@
+/* - - - - - - - - - - - - - - - - global styles - - - - - - - - - - - - - - - -*/
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-size: 1rem;
+  color: @main-color;
+}
+
+h1 {
+  font-size: 3.75rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+//a:not([class]){
+//    color: @link-blue;
+//}
+
+input[type='submit'] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  padding-left: 42px;
+  cursor: pointer;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    width: 21px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    left: 0;
+    top: 0;
+  }
+
+  &::after {
+    background: url("../images/sprite.png") -72px -24px no-repeat;
+    width: 15px;
+    height: 12px;
+    top: 6px;
+    left: 5px;
+    display: none;
+  }
+
+  &.active {
+    &::after {
+      display: block;
+    }
+
+    &::before {
+      border-color: @gold-color;
+    }
+  }
+}
+
+.btn {
+  height: 52px;
+  line-height: 50px;
+  border: 2px solid transparent;
+  padding: 0 10px;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: @transition;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu-item {
+  display: inline-block;
+  user-select: none;
+}
+
+.menu {
+  white-space: nowrap;
+}
+
+.menu__item {
+  display: inline-block;
+  vertical-align: middle;
+
+  a {
+    display: inline-block;
+  }
+}
+
+
+
