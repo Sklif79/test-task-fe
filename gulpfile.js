@@ -27,7 +27,7 @@ var path = {
     src: {
         html: 'src/*.html',
         js: 'src/assets/js/custom.js',
-        // jsLibs: 'src/assets/js/libs.js',
+        jsLibs: 'src/assets/js/libs.js',
         style: 'src/assets/css/**/*.*',
         styleLess: ['src/assets/less/style.less'],
         less: 'src/assets/less/**/*.less',
@@ -103,13 +103,13 @@ gulp.task('fonts:build', function () {
         .pipe(reload({stream: true}));
 });
 
-// gulp.task('js:buildLibs', function () {
-//     gulp.src(path.src.jsLibs)
-//         .pipe(rigger())
-//         .pipe(uglify())
-//         .pipe(gulp.dest(path.build.js))
-//         .pipe(reload({stream: true}));
-// });
+gulp.task('js:buildLibs', function () {
+    gulp.src(path.src.jsLibs)
+        .pipe(rigger())
+        .pipe(uglify())
+        .pipe(gulp.dest(path.build.js))
+        .pipe(reload({stream: true}));
+});
 
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
@@ -143,7 +143,7 @@ gulp.task('build', [
     'styleLess:build',
     'fonts:build',
     'images:build',
-    // 'js:buildLibs',
+    'js:buildLibs',
     'js:build',
 ]);
 
@@ -157,9 +157,9 @@ gulp.task('watch', function () {
     watch([path.watch.styleLess], function (event, cb) {
         gulp.start('styleLess:build');
     });
-    // watch([path.watch.js], function (event, cb) {
-    //     gulp.start('js:buildLibs');
-    // });
+    watch([path.watch.js], function (event, cb) {
+        gulp.start('js:buildLibs');
+    });
     watch([path.watch.js], function (event, cb) {
         gulp.start('js:build');
     });

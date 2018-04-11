@@ -2,6 +2,9 @@ ready(function () {
 
     checkedInput();
 
+    //http://github.hubspot.com/select/
+    Select.init();
+
     //scroll to catalog
     document.getElementById('js-to-catalog').addEventListener('click', function () {
         EPPZScrollTo.scrollVerticalToElementById('catalog', 0);
@@ -100,8 +103,6 @@ function inspectionInputs(arr) {
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-
-
 var EPPZScrollTo =
     {
         /**
@@ -188,12 +189,14 @@ var EPPZScrollTo =
  * polyfill for closest IE11-
  * MDN
  */
-(function(ELEMENT) {
+(function (ELEMENT) {
     ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
     ELEMENT.closest = ELEMENT.closest || function closest(selector) {
             if (!this) return null;
             if (this.matches(selector)) return this;
-            if (!this.parentElement) {return null}
+            if (!this.parentElement) {
+                return null
+            }
             else return this.parentElement.closest(selector)
         };
 }(Element.prototype));
@@ -201,7 +204,7 @@ var EPPZScrollTo =
 /**
  *  Up-Down button
  * */
-(function() {
+(function () {
 
     var upDownBtn = document.getElementById('toUp');
     var check;
